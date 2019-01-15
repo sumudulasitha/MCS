@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">SensorDataCollector</string>
+    <string name="menu_my_projects">My Projects</string>
+    <string name="menu_preferences">Preferences</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="btn_subscribe_text">Subscribe</string>
+
+    <string-array name="titles">
+        <item>Project 01</item>
+        <item>Project 02</item>
+        <item>Project 03</item>
+        <item>Project 04</item>
+    </string-array>
+</resources>
