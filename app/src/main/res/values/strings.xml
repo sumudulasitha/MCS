@@ -20,13 +20,57 @@
         <item>android.sensor.accelerometer</item>
         <item>android.sensor.accelerometer_uncalibrated</item>
         <item>android.sensor.ambient_temperature</item>
-        <item>Project 04</item>
+        <item>android.sensor.game_rotation_vector</item>
+        <item>android.sensor.geomagnetic_rotation_vector</item>
+        <item>android.sensor.gravity</item>
+        <item>android.sensor.gyroscope</item>
+        <item>android.sensor.gyroscope_uncalibrated</item>
+        <item>android.sensor.heart_beat</item>
+        <item>android.sensor.heart_rate</item>
+        <item>android.sensor.light</item>
+        <item>android.sensor.linear_acceleration </item>
+        <item>android.sensor.low_latency_offbody_detect</item>
+        <item>android.sensor.magnetic_field</item>
+        <item>android.sensor.magnetic_field_uncalibrated</item>
+        <item>android.sensor.motion_detect</item>
+        <item>android.sensor.pose_6dof</item>
+        <item>android.sensor.pressure</item>
+        <item>android.sensor.proximity</item>
+        <item>android.sensor.relative_humidity</item>
+        <item>android.sensor.rotation_vector</item>
+        <item>android.sensor.significant_motion</item>
+        <item>android.sensor.stationary_detect</item>
+        <item>android.sensor.step_counter</item>
+        <item>android.sensor.step_detector</item>
+        <item>android.sensor.temperature</item>
     </string-array>
 
     <string-array name="sensor_names">
         <item>Accelerometer Sensor</item>
         <item>Uncalibrated Accelerometer Sensor</item>
         <item>Ambient Temperature Sensor</item>
-        <item>Project 04</item>
+        <item>Game Rotation Vector</item>
+        <item>Geomagnetic Rotation Vector</item>
+        <item>Gravity</item>
+        <item>Gyroscope</item>
+        <item>Gyroscope Uncalibrated</item>
+        <item>Heart Beat</item>
+        <item>Heart Rate</item>
+        <item>Light</item>
+        <item>Linear Acceleration </item>
+        <item>Low Latency Offbody Detect</item>
+        <item>Magnetic Field</item>
+        <item>Magnetic Field Uncalibrated</item>
+        <item>Mtion Detect</item>
+        <item>Pose Sensor 6 Degrees Of Freedom</item>
+        <item>Pressure</item>
+        <item>Proximity</item>
+        <item>Humidity</item>
+        <item>Rotation Vector</item>
+        <item>Significant Motion</item>
+        <item>Stationary Detect</item>
+        <item>Step Counter</item>
+        <item>Step Detector</item>
+        <item>Temperature</item>
     </string-array>
 </resources>
