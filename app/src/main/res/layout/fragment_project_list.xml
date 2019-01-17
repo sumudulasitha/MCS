@@ -14,7 +14,7 @@
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
     app:layoutManager="android.support.v7.widget.LinearLayoutManager"
-    tools:context=".view.ProjectsListFragment"
+    tools:context=".view.subscribedprojects.SubscribedProjectListFragment"
     tools:listitem="@layout/fragment_project" />
 
     <android.support.design.widget.FloatingActionButton

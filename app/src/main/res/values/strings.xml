@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">SensorDataCollector</string>
+    <string name="menu_subscribed_projects">Subscribed Projects</string>
     <string name="menu_my_projects">My Projects</string>
+    <string name="menu_all_projects">All Projects</string>
     <string name="menu_preferences">Preferences</string>
 
     <!-- TODO: Remove or change this placeholder text -->

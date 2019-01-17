@@ -2,9 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_subscribed_projects"
+            android:icon="@drawable/ic_my_projects"
+            android:title="@string/menu_subscribed_projects" />
+        <item
             android:id="@+id/nav_my_projects"
             android:icon="@drawable/ic_my_projects"
             android:title="@string/menu_my_projects" />
+        <item
+            android:id="@+id/nav_all_projects"
+            android:icon="@drawable/ic_my_projects"
+            android:title="@string/menu_all_projects" />
         <item
             android:id="@+id/nav_preferences"
             android:icon="@drawable/ic_preference"

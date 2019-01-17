@@ -1,4 +1,4 @@
-package com.crowdsensing.sensordatacollector.view;
+package com.crowdsensing.sensordatacollector.view.myprojects;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -17,6 +17,7 @@ import android.widget.Spinner;
 
 import com.crowdsensing.sensordatacollector.R;
 import com.crowdsensing.sensordatacollector.data.Project;
+import com.crowdsensing.sensordatacollector.data.remote.SendData;
 
 import java.util.List;
 
@@ -26,23 +27,24 @@ import java.util.List;
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class ProjectsListFragment extends Fragment {
+public class MyProjectListFragment extends Fragment {
 
     private static final String ARG_COLUMN_COUNT = "column-count";
     private int mColumnCount = 1;
     private List<Project> mProjectList;
     private OnListFragmentInteractionListener mListener;
+    private SendData sendData;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public ProjectsListFragment() {
+    public MyProjectListFragment() {
     }
 
     @SuppressWarnings("unused")
-    public static ProjectsListFragment newInstance(int columnCount) {
-        ProjectsListFragment fragment = new ProjectsListFragment();
+    public static MyProjectListFragment newInstance(int columnCount) {
+        MyProjectListFragment fragment = new MyProjectListFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
@@ -64,10 +66,11 @@ public class ProjectsListFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_project_list, container, false);
 
         Context context = view.getContext();
+//        sendData = new SendData(getActivity());
 
         RecyclerView recyclerView = view.findViewById(R.id.list);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
-        recyclerView.setAdapter(new ProjectsListRecyclerViewAdapter(mProjectList, mListener));
+        recyclerView.setAdapter(new MyProjectsListRecyclerViewAdapter(mProjectList, mListener));
 
         FloatingActionButton addButton = view.findViewById(R.id.btnAdd);
         addButton.setOnClickListener(new View.OnClickListener() {
@@ -106,11 +109,15 @@ public class ProjectsListFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
+//                sendProject();
                 dialog.dismiss();
             }
         });
         dialog.show();
+    }
+
+    private void sendProject(Project project){
+        sendData.sendProject(project);
     }
 
     @Override

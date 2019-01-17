@@ -15,8 +15,12 @@ import android.widget.Toast;
 
 import com.crowdsensing.sensordatacollector.R;
 import com.crowdsensing.sensordatacollector.data.Project;
+import com.crowdsensing.sensordatacollector.view.allprojects.AllProjectListFragment;
+import com.crowdsensing.sensordatacollector.view.myprojects.MyProjectListFragment;
+import com.crowdsensing.sensordatacollector.view.subscribedprojects.SubscribedProjectListFragment;
 
-public class MainActivity extends AppCompatActivity implements ProjectsListFragment.OnListFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements SubscribedProjectListFragment.OnListFragmentInteractionListener,
+AllProjectListFragment.OnListFragmentInteractionListener, MyProjectListFragment.OnListFragmentInteractionListener{
 
     private DrawerLayout mDrawerLayout;
 
@@ -42,14 +46,17 @@ public class MainActivity extends AppCompatActivity implements ProjectsListFragm
                     @Override
                     public boolean onNavigationItemSelected(MenuItem item) {
                         int id = item.getItemId();
-                        switch(id)
-                        {
+                        switch(id) {
+                            case R.id.nav_subscribed_projects:
+                                createFragment(SubscribedProjectListFragment.newInstance(1));
+                                mDrawerLayout.closeDrawer(GravityCompat.START);
+                                break;
                             case R.id.nav_my_projects:
-                                Fragment fragment = ProjectsListFragment.newInstance(1);
-                                FragmentManager fragmentManager = getSupportFragmentManager();
-                                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                                fragmentTransaction.add(R.id.content_frame, fragment).addToBackStack(null).commit();
-
+                                createFragment(MyProjectListFragment.newInstance(1));
+                                mDrawerLayout.closeDrawer(GravityCompat.START);
+                                break;
+                            case R.id.nav_all_projects:
+                                createFragment(AllProjectListFragment.newInstance(1));
                                 mDrawerLayout.closeDrawer(GravityCompat.START);
                                 break;
                             case R.id.nav_preferences:
@@ -57,11 +64,16 @@ public class MainActivity extends AppCompatActivity implements ProjectsListFragm
                                 break;
                             default:
                                 return true;
-
                         }
                         return true;
                     }
                 });
+    }
+
+    private void createFragment(Fragment fragment){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.add(R.id.content_frame, fragment).addToBackStack(null).commit();
     }
 
     @Override

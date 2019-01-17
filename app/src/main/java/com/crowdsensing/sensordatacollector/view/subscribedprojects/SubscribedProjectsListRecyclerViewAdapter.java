@@ -1,4 +1,4 @@
-package com.crowdsensing.sensordatacollector.view;
+package com.crowdsensing.sensordatacollector.view.subscribedprojects;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.crowdsensing.sensordatacollector.R;
 import com.crowdsensing.sensordatacollector.data.Project;
-import com.crowdsensing.sensordatacollector.view.ProjectsListFragment.OnListFragmentInteractionListener;
+import com.crowdsensing.sensordatacollector.view.subscribedprojects.SubscribedProjectListFragment.OnListFragmentInteractionListener;
 
 import java.util.List;
 
@@ -16,12 +16,12 @@ import java.util.List;
  * specified {@link OnListFragmentInteractionListener}.
  * TODO: Replace the implementation with code for your data type.
  */
-public class ProjectsListRecyclerViewAdapter extends RecyclerView.Adapter<ProjectsListRecyclerViewAdapter.ViewHolder> {
+public class SubscribedProjectsListRecyclerViewAdapter extends RecyclerView.Adapter<SubscribedProjectsListRecyclerViewAdapter.ViewHolder> {
 
     private final List<Project> mProjectList;
     private final OnListFragmentInteractionListener mListener;
 
-    public ProjectsListRecyclerViewAdapter(List<Project> projectList, OnListFragmentInteractionListener listener) {
+    public SubscribedProjectsListRecyclerViewAdapter(List<Project> projectList, OnListFragmentInteractionListener listener) {
         mProjectList = projectList;
         mListener = listener;
     }
