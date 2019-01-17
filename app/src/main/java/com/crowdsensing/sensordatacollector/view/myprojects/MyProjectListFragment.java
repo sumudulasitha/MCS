@@ -2,6 +2,7 @@ package com.crowdsensing.sensordatacollector.view.myprojects;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -76,7 +77,8 @@ public class MyProjectListFragment extends Fragment {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showProjectSubscribeDialog();
+//                showProjectSubscribeDialog();
+                startActivity(new Intent(getActivity(), CreateProjectActivity.class));
             }
         });
         return view;

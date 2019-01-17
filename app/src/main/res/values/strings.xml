@@ -15,4 +15,18 @@
         <item>Project 03</item>
         <item>Project 04</item>
     </string-array>
+
+    <string-array name="sensor_ids">
+        <item>android.sensor.accelerometer</item>
+        <item>android.sensor.accelerometer_uncalibrated</item>
+        <item>android.sensor.ambient_temperature</item>
+        <item>Project 04</item>
+    </string-array>
+
+    <string-array name="sensor_names">
+        <item>Accelerometer Sensor</item>
+        <item>Uncalibrated Accelerometer Sensor</item>
+        <item>Ambient Temperature Sensor</item>
+        <item>Project 04</item>
+    </string-array>
 </resources>
