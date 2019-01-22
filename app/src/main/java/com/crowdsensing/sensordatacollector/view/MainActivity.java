@@ -10,6 +10,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -18,11 +19,15 @@ import com.crowdsensing.sensordatacollector.data.Project;
 import com.crowdsensing.sensordatacollector.view.allprojects.AllProjectListFragment;
 import com.crowdsensing.sensordatacollector.view.myprojects.MyProjectListFragment;
 import com.crowdsensing.sensordatacollector.view.subscribedprojects.SubscribedProjectListFragment;
+import com.github.nisrulz.sensey.Sensey;
+import com.github.nisrulz.sensey.ShakeDetector;
 
 public class MainActivity extends AppCompatActivity implements SubscribedProjectListFragment.OnListFragmentInteractionListener,
 AllProjectListFragment.OnListFragmentInteractionListener, MyProjectListFragment.OnListFragmentInteractionListener{
 
     private DrawerLayout mDrawerLayout;
+    private ShakeDetector.ShakeListener shakeListener;
+//    private Proxymity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +42,10 @@ AllProjectListFragment.OnListFragmentInteractionListener, MyProjectListFragment.
         ActionBar actionbar = getSupportActionBar();
         actionbar.setDisplayHomeAsUpEnabled(true);
         actionbar.setHomeAsUpIndicator(R.drawable.ic_menu);
+
+        createFragment(SubscribedProjectListFragment.newInstance(1));
+
+        testActions();
 
         mDrawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -60,7 +69,7 @@ AllProjectListFragment.OnListFragmentInteractionListener, MyProjectListFragment.
                                 mDrawerLayout.closeDrawer(GravityCompat.START);
                                 break;
                             case R.id.nav_preferences:
-                                Toast.makeText(MainActivity.this, "Settings",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this, "Settings", Toast.LENGTH_SHORT).show();
                                 break;
                             default:
                                 return true;
@@ -68,6 +77,26 @@ AllProjectListFragment.OnListFragmentInteractionListener, MyProjectListFragment.
                         return true;
                     }
                 });
+    }
+
+    private void testActions(){
+        Sensey.getInstance().init(this);
+
+        shakeListener = new ShakeDetector.ShakeListener() {
+
+            @Override public void onShakeDetected() {
+                // Shake detected, do something
+                Log.d("Sensey", "Shaking....");
+            }
+
+            @Override public void onShakeStopped() {
+                // Shake stopped, do something
+                Log.d("Sensey", "Shaking stopped....");
+            }
+        };
+
+
+        Sensey.getInstance().startShakeDetection(shakeListener);
     }
 
     private void createFragment(Fragment fragment){
@@ -82,8 +111,16 @@ AllProjectListFragment.OnListFragmentInteractionListener, MyProjectListFragment.
             case android.R.id.home:
                 mDrawerLayout.openDrawer(GravityCompat.START);
                 return true;
+
+
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Sensey.getInstance().stopShakeDetection(shakeListener);
     }
 
     @Override
@@ -94,5 +131,11 @@ AllProjectListFragment.OnListFragmentInteractionListener, MyProjectListFragment.
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Sensey.getInstance().stop();
     }
 }

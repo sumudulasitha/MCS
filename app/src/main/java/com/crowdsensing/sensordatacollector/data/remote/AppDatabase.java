@@ -6,8 +6,9 @@ import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
 import com.crowdsensing.sensordatacollector.data.Project;
+import com.crowdsensing.sensordatacollector.data.ProjectSave;
 
-@Database(entities = {Project.class}, version = 1)
+@Database(entities = {ProjectSave.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static volatile AppDatabase INSTANCE;

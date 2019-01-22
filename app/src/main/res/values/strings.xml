@@ -73,4 +73,27 @@
         <item>Step Detector</item>
         <item>Temperature</item>
     </string-array>
+
+    <string-array name="action_ids">
+        <item>android.action.shake</item>
+        <item>android.action.Movement</item>
+        <item>android.action.PickupDevice</item>
+        <item>android.action.TouchType</item>
+        <item>android.action.SoundLevel</item>
+        <item>android.action.Proximity</item>
+        <item>android.action.Light</item>
+        <item>android.action.PinchScale</item>
+    </string-array>
+
+    <string-array name="action_names">
+        <item>Shake</item>
+        <item>Movement</item>
+        <item>PickupDevice</item>
+        <item>TouchType</item>
+        <item>SoundLevel</item>
+        <item>Proximity</item>
+        <item>Light</item>
+        <item>PinchScale</item>
+        <item>HPinchScale</item>
+    </string-array>
 </resources>

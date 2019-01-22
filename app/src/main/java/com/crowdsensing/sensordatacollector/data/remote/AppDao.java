@@ -7,6 +7,7 @@ import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 
 import com.crowdsensing.sensordatacollector.data.Project;
+import com.crowdsensing.sensordatacollector.data.ProjectSave;
 
 import java.util.List;
 
@@ -14,11 +15,11 @@ import java.util.List;
 public interface AppDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    void insertProject(Project project);
+    void insertProject(ProjectSave project);
 
-    @Query("SELECT * FROM Project")
-    List<Project> getProjects();
+    @Query("SELECT * FROM ProjectSave")
+    List<ProjectSave> getProjects();
 
     @Delete
-    void deleteProject(Project project);
+    void deleteProject(ProjectSave project);
 }

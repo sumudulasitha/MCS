@@ -38,4 +38,7 @@ dependencies {
 
     //firebase
     implementation 'com.google.firebase:firebase-database:16.0.5'
+
+    //Sensors
+    implementation 'com.github.nisrulz:sensey:1.8.0'
 }

@@ -17,6 +17,7 @@ import android.widget.Spinner;
 
 import com.crowdsensing.sensordatacollector.R;
 import com.crowdsensing.sensordatacollector.data.Project;
+import com.crowdsensing.sensordatacollector.data.ProjectSave;
 import com.crowdsensing.sensordatacollector.data.remote.AppDatabase;
 
 import java.util.List;
@@ -114,7 +115,7 @@ public class AllProjectListFragment extends Fragment {
         dialog.show();
     }
 
-    private void saveProjectToDB(Project project){
+    private void saveProjectToDB(ProjectSave project){
         AppDatabase.getDatabase(getActivity()).AppDao().insertProject(project);
     }
 
