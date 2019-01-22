@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "850740545095",
+    "firebase_url": "https://sensor-data-test.firebaseio.com",
+    "project_id": "sensor-data-test",
+    "storage_bucket": "sensor-data-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:850740545095:android:6b9bc3d294d3d5ce",
+        "android_client_info": {
+          "package_name": "com.crowdsensing.sensordatacollector"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "850740545095-tbpec69iakcon0nnju4gt1ca7e8po1ff.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.crowdsensing.sensordatacollector",
+            "certificate_hash": "f1fc3d8a5b7002f3377045c8db58688c4385fa84"
+          }
+        },
+        {
+          "client_id": "850740545095-s03go8j9j1tmqv9v83u53l0cpf3mer7c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTfN9X66YQqecTKG-nThT15SlQoFmF92c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "850740545095-s03go8j9j1tmqv9v83u53l0cpf3mer7c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
