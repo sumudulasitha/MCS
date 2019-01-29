@@ -28,7 +28,7 @@ import java.util.List;
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class MyProjectListFragment extends Fragment {
+public class MyProjectListFragment extends Fragment implements SendData.OnProjectsListReceived {
 
     private static final String ARG_COLUMN_COUNT = "column-count";
     private int mColumnCount = 1;
@@ -36,11 +36,19 @@ public class MyProjectListFragment extends Fragment {
     private OnListFragmentInteractionListener mListener;
     private SendData sendData;
 
+    RecyclerView mRecyclerView;
+
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
     public MyProjectListFragment() {
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        sendData.getProjects();
     }
 
     @SuppressWarnings("unused")
@@ -67,11 +75,11 @@ public class MyProjectListFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_project_list, container, false);
 
         Context context = view.getContext();
-//        sendData = new SendData(getActivity());
+        sendData = new SendData(getActivity());
+        sendData.setOnProjectListReceived(this);
 
-        RecyclerView recyclerView = view.findViewById(R.id.list);
-        recyclerView.setLayoutManager(new LinearLayoutManager(context));
-        recyclerView.setAdapter(new MyProjectsListRecyclerViewAdapter(mProjectList, mListener));
+        mRecyclerView = view.findViewById(R.id.list);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(context));
 
         FloatingActionButton addButton = view.findViewById(R.id.btnAdd);
         addButton.setOnClickListener(new View.OnClickListener() {
@@ -137,6 +145,14 @@ public class MyProjectListFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void onProjectListReceived(List<Project> projectList) {
+        mProjectList = projectList;
+        mRecyclerView.setAdapter(new MyProjectsListRecyclerViewAdapter(mProjectList, mListener));
+
+        sendData.removeListener();
     }
 
     public interface OnListFragmentInteractionListener {

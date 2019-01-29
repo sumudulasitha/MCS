@@ -33,8 +33,7 @@ import java.util.List;
 
 public class CreateProjectActivity extends AppCompatActivity implements
         SensorListAdapter.OnCheckedListener, View.OnClickListener, DatePickerDialog.OnDateSetListener,
-        TimePickerDialog.OnTimeSetListener
-{
+        TimePickerDialog.OnTimeSetListener {
 
     public static final String ACTION_DISPLAY_SENSORS = "ACTION_DISPLAY_SENSORS";
 
@@ -99,8 +98,7 @@ public class CreateProjectActivity extends AppCompatActivity implements
         } else {
             try {
                 final Method method = EditText.class.getMethod(
-                        "setShowSoftInputOnFocus"
-                        , new Class[]{boolean.class});
+                        "setShowSoftInputOnFocus", new Class[]{boolean.class});
                 method.setAccessible(true);
                 method.invoke(startDateEditText,endDateEditText, startTimeEditText, endTimeEditText, false);
             } catch (Exception e) {

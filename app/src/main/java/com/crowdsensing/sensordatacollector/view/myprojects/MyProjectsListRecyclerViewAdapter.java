@@ -37,8 +37,8 @@ public class MyProjectsListRecyclerViewAdapter extends RecyclerView.Adapter<MyPr
     public void onBindViewHolder(final ViewHolder holder, int position) {
         if(mProjectList != null){
             holder.mProject = mProjectList.get(position);
-            holder.mNameTextView.setText(mProjectList.get(position).id);
-//            holder.mSensorCountTextView.setText(mProjectList.get(position).sensors.size() + "");
+            holder.mNameTextView.setText(mProjectList.get(position).name);
+            holder.mSensorCountTextView.setText(mProjectList.get(position).endTime);
 
             holder.mView.setOnClickListener(new View.OnClickListener() {
                 @Override
