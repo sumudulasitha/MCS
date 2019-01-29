@@ -15,6 +15,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.crowdsensing.sensordatacollector.R;
 import com.crowdsensing.sensordatacollector.data.Project;
@@ -23,8 +24,11 @@ import com.crowdsensing.sensordatacollector.data.remote.SendData;
 import com.crowdsensing.sensordatacollector.utils.Util;
 
 import java.lang.reflect.Method;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class CreateProjectActivity extends AppCompatActivity implements
@@ -122,7 +126,11 @@ public class CreateProjectActivity extends AppCompatActivity implements
 
         Project project = new Project();
         project.name = projectNameEditText.getText().toString();
-        project.sensorList = selectedSensorList.toString();
+        project.sensorList = Util.getSensorListAsString(selectedSensorList, this);
+        project.startDate = Util.getMilliseconds(startDateEditText.getText().toString());
+        project.endDate = Util.getMilliseconds(endDateEditText.getText().toString());
+        project.startTime = startTimeEditText.getText().toString();
+        project.endTime = endTimeEditText.getText().toString();
         sendData.sendProject(project);
     }
 
