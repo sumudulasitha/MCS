@@ -10,14 +10,14 @@ import com.google.firebase.database.FirebaseDatabase;
 public class SendData {
 
     private DatabaseReference mDatabase;
-    private Context context;
+//    private Context context;
 
-    //    private static SendData INSTANCE;
+//        private static SendData INSTANCE;
     public SendData(Context context) {
 //        if(INSTANCE == null){
-//            INSTANCE = new SendData();
-        this.context = context;
-//        mDatabase = FirebaseDatabase.getInstance().getReference();
+//            INSTANCE = new SendData(context);
+//            this.context = context;
+            mDatabase = FirebaseDatabase.getInstance().getReference();
 
 //        }
     }

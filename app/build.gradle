@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 28
@@ -37,7 +38,7 @@ dependencies {
     annotationProcessor "android.arch.persistence.room:compiler:$room_version"
 
     //firebase
-    implementation 'com.google.firebase:firebase-database:16.0.5'
+    implementation 'com.google.firebase:firebase-database:16.0.6'
 
     //Sensors
     implementation 'com.github.nisrulz:sensey:1.8.0'
