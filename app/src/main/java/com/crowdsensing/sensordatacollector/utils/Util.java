@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 public class Util {
 
@@ -30,6 +31,7 @@ public class Util {
         return sensorList;
     }
 
+
     public static long getMilliseconds(String date){
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         Date dateString = null;
@@ -39,6 +41,13 @@ public class Util {
             e.printStackTrace();
         }
         return dateString != null ? dateString.getTime() : 0;
+    }
+
+    public static String getDate(long timestamp){
+
+        SimpleDateFormat sfd = new SimpleDateFormat("dd/MM//yyyy");
+        sfd.setTimeZone(TimeZone.getDefault());
+        return sfd.format(new Date(timestamp));
     }
 
     public static String getSensorListAsString(List<Sensor> sensorList, Context context){

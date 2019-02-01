@@ -15,7 +15,6 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
 import com.crowdsensing.sensordatacollector.R;
 import com.crowdsensing.sensordatacollector.data.Project;
@@ -24,11 +23,8 @@ import com.crowdsensing.sensordatacollector.data.remote.SendData;
 import com.crowdsensing.sensordatacollector.utils.Util;
 
 import java.lang.reflect.Method;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 public class CreateProjectActivity extends AppCompatActivity implements
@@ -56,7 +52,7 @@ public class CreateProjectActivity extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sensors);
+        setContentView(R.layout.activity_create_project);
 
         toolbar = findViewById(R.id.toolbar);
         toolbar.setTitleTextColor(getResources().getColor(android.R.color.white));
@@ -130,6 +126,8 @@ public class CreateProjectActivity extends AppCompatActivity implements
         project.startTime = startTimeEditText.getText().toString();
         project.endTime = endTimeEditText.getText().toString();
         sendData.sendProject(project);
+
+        finish();
     }
 
     @Override
@@ -151,7 +149,7 @@ public class CreateProjectActivity extends AppCompatActivity implements
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()){
-            case R.id.actionDone:
+            case R.id.actionSubscribe:
                 sendProject();
                 break;
         }

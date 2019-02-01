@@ -22,6 +22,7 @@ import com.crowdsensing.sensordatacollector.data.remote.SendData;
 
 import java.util.List;
 
+
 /**
  * A fragment representing a list of Items.
  * <p/>
@@ -33,7 +34,6 @@ public class MyProjectListFragment extends Fragment implements SendData.OnProjec
     private static final String ARG_COLUMN_COUNT = "column-count";
     private int mColumnCount = 1;
     private List<Project> mProjectList;
-    private OnListFragmentInteractionListener mListener;
     private SendData sendData;
 
     RecyclerView mRecyclerView;
@@ -134,7 +134,6 @@ public class MyProjectListFragment extends Fragment implements SendData.OnProjec
     public void onAttach(Context context) {
         super.onAttach(context);
         if (context instanceof OnListFragmentInteractionListener) {
-            mListener = (OnListFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnListFragmentInteractionListener");
@@ -144,16 +143,19 @@ public class MyProjectListFragment extends Fragment implements SendData.OnProjec
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
     }
 
     @Override
     public void onProjectListReceived(List<Project> projectList) {
         mProjectList = projectList;
-        mRecyclerView.setAdapter(new MyProjectsListRecyclerViewAdapter(mProjectList, mListener));
-
+        mRecyclerView.setAdapter(new MyProjectsListRecyclerViewAdapter(mProjectList, getContext()));
         sendData.removeListener();
     }
+
+//    @Override
+//    public void onListFragmentInteraction(Project project) {
+//
+//    }
 
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name

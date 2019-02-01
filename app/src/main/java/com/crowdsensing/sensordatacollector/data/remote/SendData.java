@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.crowdsensing.sensordatacollector.data.Project;
+import com.crowdsensing.sensordatacollector.data.Subscription;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -40,15 +41,11 @@ public class SendData {
 //        }
     }
 
-//    public static SendData getInstance(Context context){
-//        return INSTANCE;
-//    }
-
     public void sendProject(Project project) {
 
         if(project != null) {
             String key = mDatabase.child("project").push().getKey();
-            Log.i("Key", key);
+            project.id = key;
 
             Map<String, Object> child = new HashMap<>();
             child.put("/project/"+ key, project);
@@ -78,10 +75,22 @@ public class SendData {
 
             }
         });
-//        return projectList;
+    }
+
+    public void subscribeProject(Subscription subscription){
+        if(subscription != null) {
+            String key = mDatabase.child("subscription").push().getKey();
+            Log.i("Key", key);
+            subscription.id = key;
+
+            Map<String, Object> child = new HashMap<>();
+            child.put("/subscription/"+ key, subscription);
+
+            mDatabase.updateChildren(child);
+        }
     }
 
     public void removeListener(){
-
+//        mDatabase.removeEventListener();
     }
 }

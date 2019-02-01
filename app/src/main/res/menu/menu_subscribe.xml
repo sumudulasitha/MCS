@@ -7,7 +7,6 @@
     <item
         android:id="@+id/actionSubscribe"
         android:orderInCategory="100"
-        android:title="done"
-        android:icon="@drawable/ic_tick"
-        app:showAsAction="ifRoom" />
+        android:title="@string/btn_subscribe_text"
+        app:showAsAction="always" />
 </menu>
